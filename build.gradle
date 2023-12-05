@@ -1,0 +1,37 @@
+buildscript {
+    ext {
+        springBootVersion = '3.1.0'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id "org.flywaydb.flyway" version "9.8.1"
+}
+
+group = 'io.tecky'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.postgresql:postgresql'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.modelmapper:modelmapper:3.1.1'
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.484'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.session:spring-session-jdbc'
+    implementation 'at.favre.lib:bcrypt:0.10.2'
+    implementation 'com.auth0:java-jwt:4.4.0'
+}
+
+test {
+    useJUnitPlatform()
+}
